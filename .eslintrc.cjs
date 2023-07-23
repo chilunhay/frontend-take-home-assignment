@@ -9,12 +9,12 @@ module.exports = {
   },
   plugins: [
     '@typescript-eslint', //
-    'prettier',
+    // 'prettier',
   ],
   extends: [
     'plugin:@typescript-eslint/recommended', //
     'next',
-    'prettier',
+    // 'prettier',
   ],
   rules: {
     '@next/next/no-html-link-for-pages': 'off',
@@ -58,7 +58,7 @@ module.exports = {
         'newlines-between': 'always',
       },
     ],
-    'prettier/prettier': 'error',
+    // 'prettier/prettier': 'error',
   },
   overrides: [
     {

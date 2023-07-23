@@ -7,7 +7,7 @@ import { api } from '@/utils/client/api'
  * -----------
  * Style the "Add" button so that it looks like the design in Figma.
  *
- * NOTE: You must use tailwindcss and className. Do not use other methods (eg.
+ * NOTE: You must use tailwind css and className. Do not use other methods (eg.
  * inline styles, separate css files, css modules, etc.) unless absolutely
  * necessary. This applies to all styling-related questions in this assignment.
  *
@@ -35,8 +35,18 @@ export const CreateTodoForm = () => {
       },
     })
 
+  const HandleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    createTodo({
+      body: todoBody,
+    })
+    setTodoBody('')
+  }
+
   return (
-    <form className="group flex items-center justify-between rounded-12 border border-gray-200 py-2 pr-4 focus-within:border-gray-400">
+    <form className="group flex items-center justify-between rounded-12 border border-gray-200 py-2 pr-4 focus-within:border-gray-400" 
+      onSubmit={HandleSubmit}
+    >
       <label htmlFor={TODO_INPUT_ID} className="sr-only">
         Add todo
       </label>
@@ -53,16 +63,11 @@ export const CreateTodoForm = () => {
       />
 
       <button
-        type="button"
+        type="submit"
         disabled={isCreatingTodo}
-        onClick={() => {
-          createTodo({
-            body: todoBody,
-          })
-          setTodoBody('')
-        }}
+        className="w-16 h-9 px-5 py-2 bg-slate-700 rounded-full justify-center items-center gap-2 inline-flex bg-gray-700"
       >
-        Add
+        <span className="text-center text-white text-sm font-bold leading-tight">Add</span>
       </button>
     </form>
   )
